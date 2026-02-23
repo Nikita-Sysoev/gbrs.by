@@ -311,7 +311,7 @@ section {
     display: none;
     grid-template-columns: 1fr 2fr;
     gap: 40px;
-    background: #f9f9f9;
+    background: #f7f7f7;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -549,6 +549,13 @@ section {
 
     .hero {
         height: 80vh;
+    }
+
+    .tab-pane{
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        background-color: inherit;
     }
 
     .tab-pane.active {
