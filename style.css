@@ -319,6 +319,8 @@ section {
 
 .tab-pane.active {
     display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
     animation: fadeIn 0.5s ease;
 }
 
@@ -520,47 +522,9 @@ section {
 
 /* --- АДАПТИВНОСТЬ (МОБИЛЬНЫЕ) --- */
 @media (max-width: 768px) {
-    .header .container {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .header .header-contacts {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .geo-status {
-        display: none;
-    }
-
-    .hero {
-        height: 80vh;
-    }
-
-    .tab-pane.active {
-        grid-template-columns: 1fr;
-    }
-
-    .branch-info {
-        text-align: center;
-    }
-
-    .btn-route {
-        width: 100%;
-    }
-
-    .footer .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-        .header {
+    header {
         padding: 8px 0;
     }
-
-
-
     .header .container {
         display: grid;
         grid-template-columns: 1fr auto; 
@@ -581,5 +545,22 @@ section {
         text-decoration: none;
         font-weight: bold;
         white-space: nowrap;
+    }
+
+    .hero {
+        height: 80vh;
+    }
+
+    .tab-pane.active {
+        grid-template-columns: 1fr;
+    }
+
+    .branch-info {
+        text-align: left;
+    }
+
+    .footer .container {
+        flex-direction: column;
+        text-align: center;
     }
 }
