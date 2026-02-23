@@ -380,10 +380,6 @@ section {
     text-align: center;
 }
 
-
-
-
-
 .branch-info a.btn-route {
     display: inline-block;
     margin-top: 15px;
@@ -410,8 +406,6 @@ section {
     height: 100%;
     transition: 0.3s;
 }
-
-
 
 /* --- ПОДВАЛ --- */
 .footer {
@@ -476,7 +470,7 @@ section {
 
 /* Стили для Lightbox */
 .lightbox {
-    display: none; /* Скрыто по умолчанию */
+    display: none; 
     position: fixed;
     z-index: 2000;
     top: 0;
@@ -522,6 +516,8 @@ section {
 
 
 
+
+
 /* --- АДАПТИВНОСТЬ (МОБИЛЬНЫЕ) --- */
 @media (max-width: 768px) {
     .header .container {
@@ -557,5 +553,33 @@ section {
     .footer .container {
         flex-direction: column;
         text-align: center;
+    }
+
+        .header {
+        padding: 8px 0;
+    }
+
+
+
+    .header .container {
+        display: grid;
+        grid-template-columns: 1fr auto; 
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .header-contacts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2px;
+    }
+
+    .header .phone {
+        font-size: 13px;
+        color: #2c3e50;
+        text-decoration: none;
+        font-weight: bold;
+        white-space: nowrap;
     }
 }
