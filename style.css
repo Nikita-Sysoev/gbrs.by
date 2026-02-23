@@ -309,7 +309,7 @@ section {
 
 .tab-pane {
     display: none;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     gap: 40px;
     background: #f9f9f9;
     padding: 30px;
@@ -344,10 +344,45 @@ section {
     font-size: 1.1rem;
 }
 
-.branch-info a {
-    text-decoration: none;
-    color: inherit;
+
+
+.branch-phones {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
+
+.phone-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.phone-link:hover {
+    background: #f0f4f8;
+    border-color: #2c3e50;
+}
+
+.operator-name {
+    width: 30px;
+    font-size: 12px;
+    color: #95a5a6;
+    font-weight: 400;
+    margin-right: 10px;
+    text-align: center;
+}
+
+
+
+
 
 .branch-info a.btn-route {
     display: inline-block;
@@ -359,7 +394,7 @@ section {
     border-radius: 4px;
     font-weight: bold;
     text-align: center;
-    width: max-content;
+    width: 100%;
 }
 
 .branch-map {

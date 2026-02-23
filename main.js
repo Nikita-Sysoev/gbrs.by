@@ -1,13 +1,12 @@
 document.querySelectorAll('.tab-btn').forEach(button => {
     button.addEventListener('click', () => {
         const cityId = button.getAttribute('data-city');
-        // 1. Убираем класс active у всех кнопок
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        // 2. Скрываем все блоки с контентом
         document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
-        // 3. Добавляем active нажатой кнопке и нужному блоку
         button.classList.add('active');
         document.getElementById(cityId).classList.add('active');
+
+        button.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     });
 });
 
@@ -29,7 +28,6 @@ document.querySelectorAll('.portfolio-img').forEach(item => {
         lightboxImg.src = img.src;
         lightboxCaption.innerText = desc;
         
-        // Блокируем прокрутку сайта под окном
         document.body.style.overflow = 'hidden';
     });
 });
