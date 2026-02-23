@@ -51,7 +51,6 @@ section {
 
 .header-contacts {
     display: flex;
-    align-items: center;
     gap: 20px;
 }
 
@@ -266,21 +265,35 @@ section {
 
 .tabs-nav {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-wrap: nowrap;         
+    overflow-x: auto;           
     gap: 10px;
     margin-bottom: 40px;
+    padding: 10px 5px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;         
+}
+.tabs-nav::-webkit-scrollbar {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .tabs-nav {
+        justify-content: center;
+    }
 }
 
 .tab-btn {
+    flex: 0 0 auto;
     padding: 12px 24px;
     border: 1px solid #ddd;
     background: #f9f9f9;
     cursor: pointer;
     transition: 0.3s;
-    font-size: 16px;
+    font-size: 15px;
     border-radius: 4px;
-    font-weight: 500;
+    white-space: nowrap;
     color: #333;
 }
 
@@ -479,6 +492,11 @@ section {
     .header .container {
         flex-direction: column;
         gap: 15px;
+    }
+
+    .header .header-contacts {
+        flex-direction: column;
+        gap: 5px;
     }
 
     .geo-status {
