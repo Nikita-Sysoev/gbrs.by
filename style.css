@@ -1,3 +1,11 @@
+:root {
+    --color-gold: #D4AF37;       /* Золото из логотипа и плашек */
+    --color-gold-dark: #B8860B;  /* Для эффекта наведения */
+    --color-dark: #1A1A1A;       /* Цвет камня/гранита */
+    --color-bg-light: #F5F5DC;   /* Цвет плашки с адресом */
+    --color-text: #333333;
+}
+
 /* --- БАЗОВЫЕ НАСТРОЙКИ --- */
 * {
     margin: 0;
@@ -33,7 +41,7 @@ section {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px #0000000d;
 }
 
 .header .container {
@@ -45,7 +53,7 @@ section {
 .logo {
     font-weight: bold;
     font-size: 24px;
-    color: #2c3e50;
+    color: var(--color-gold-dark);
     text-decoration: none;
 }
 
@@ -56,7 +64,7 @@ section {
 
 .phone {
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--color-gold-dark);
     text-decoration: none;
     font-size: 18px;
 }
@@ -68,7 +76,7 @@ section {
 }
 
 .phone a:hover{
-    color: #817f88;
+    color: #777776;
 }
 
 
@@ -77,7 +85,7 @@ section {
 .hero {
     height: 90vh;
     padding: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                 url('./src/hero-image.png') no-repeat center center/cover;
     display: flex;
     align-items: center;
@@ -101,8 +109,8 @@ section {
 }
 
 .btn-main {
-    background: #ffffff;
-    color: #000000;
+    background: var(--color-gold);
+    color: #fff;
     padding: 16px 32px;
     text-decoration: none;
     border-radius: 4px;
@@ -113,7 +121,7 @@ section {
 }
 
 .btn-main:hover {
-    background: #c5c5c5;
+    background: var(--color-gold-dark);
 }
 
 
@@ -127,7 +135,7 @@ section {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 40px;
-    color: #2c3e50;
+    color: var(--color-text);
 }
 
 .services-grid {
@@ -140,7 +148,7 @@ section {
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px #0000000d;
     transition: transform 0.3s;
 }
 
@@ -160,7 +168,7 @@ section {
 
 .service-content h3 {
     margin-bottom: 10px;
-    color: #2c3e50;
+    color: var(--color-text);
 }
 
 .service-content p {
@@ -214,7 +222,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(44, 62, 80, 0.4);
+    background: #50462c66;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -302,9 +310,9 @@ section {
 }
 
 .tab-btn.active {
-    background: #2c3e50;
     color: #fff;
-    border-color: #2c3e50;
+    background: var(--color-gold);
+    border-color: var(--color-gold);
 }
 
 .tab-pane {
@@ -322,6 +330,8 @@ section {
     grid-template-columns: 1fr 2fr;
     gap: 40px;
     animation: fadeIn 0.5s ease;
+    background-color: var(--color-bg-light); /* Эффект бумаги/плашки с адресом */
+    border-left: 5px solid var(--color-gold); /* Тонкий золотой акцент */
 }
 
 @keyframes fadeIn {
@@ -386,8 +396,9 @@ section {
     display: inline-block;
     margin-top: 15px;
     padding: 12px 24px;
-    background: #27ae60;
-    color: #fff;
+    background: var(--color-dark) !important; 
+    color: var(--color-gold) !important;
+    border: 1px solid var(--color-gold);
     text-decoration: none;
     border-radius: 4px;
     font-weight: bold;
@@ -411,7 +422,8 @@ section {
 
 /* --- ПОДВАЛ --- */
 .footer {
-    background: #2c3e50;
+    background: var(--color-dark);
+    border-top: 2px solid var(--color-gold);
     color: #ecf0f1;
     padding: 20px 0;
 }
@@ -490,7 +502,7 @@ section {
     max-width: 90%;
     max-height: 80vh;
     border: 3px solid #fff;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px #00000080;
     animation: zoom 0.3s ease;
 }
 
@@ -541,7 +553,7 @@ section {
 
     .header .phone {
         font-size: 13px;
-        color: #2c3e50;
+        color: var(--color-text);
         text-decoration: none;
         font-weight: bold;
         white-space: nowrap;
