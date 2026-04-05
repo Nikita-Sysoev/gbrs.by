@@ -422,103 +422,75 @@ main section .section-underline {
     background-color: var(--color-black-light);
 }
 
-/* Сетка карточек */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
-    width: 100%;
+    margin-top: 50px;
 }
 
-/* Стили отдельной карточки */
 .service-card {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    padding: 50px 35px;
+    background: var(--color-black);
+    padding: 40px 30px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
     border-radius: 4px;
     text-align: center;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--transition);
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
 }
 
-/* Эффект при наведении на карточку */
 .service-card:hover {
-    transform: translateY(-15px);
     border-color: var(--color-gold);
-    background: rgba(212, 175, 55, 0.03);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-/* Иконка услуги */
+/* Выделение основной услуги (Изготовление) */
+.service-card.highlight {
+    background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
 .service-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 25px;
     color: var(--color-gold);
-    margin-bottom: 30px;
-    transition: var(--transition);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.service-card:hover .service-icon {
-    transform: scale(1.15) rotate(5deg);
-    color: var(--color-gold-light);
-}
-
-/* Заголовок внутри карточки */
 .service-card h3 {
-    font-size: 20px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
     color: var(--color-white);
-    transition: var(--transition);
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.service-card:hover h3 {
-    color: var(--color-gold-light);
-}
-
-/* Описание услуги */
 .service-card p {
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 15px;
-    line-height: 1.7;
-    margin: 0;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Чтобы ценники были на одном уровне */
 }
 
-/* Планшеты */
-@media (max-width: 1200px) {
-    .services {
-        padding: 70px 0;
-    }
-    
-.services-grid {
-        grid-template-columns: repeat(2, 1fr); 
+.service-price {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-gold);
+    padding-top: 20px;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    width: 100%;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .services-grid {
         gap: 20px;
     }
-}
-
-/* Мобильные устройства */
-@media (max-width: 600px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .services .section-header {
-        margin-bottom: 40px; 
-    }
-    
     .service-card {
-        padding: 40px 25px;
-    }
-
-    .services .section-title {
-        font-size: 28px;
+        padding: 30px 20px;
     }
 }
 
