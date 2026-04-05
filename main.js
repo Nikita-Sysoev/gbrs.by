@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- ИНИЦИАЛИЗАЦИЯ ГОРОДА ПРИ ЗАГРУЗКЕ ---
-    const savedBranch = localStorage.getItem('selectedBranch') || "Орша"; 
+    const savedBranch = localStorage.getItem('selectedBranch') || "Белыничи"; 
     if (activeCity) activeCity.textContent = savedBranch;
     updateBranchUI(savedBranch);
 
