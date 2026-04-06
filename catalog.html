@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GBRS.BY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preload" as="image" href="./src/hero-image.png">
+</head>
+<body>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-location">
+            <div class="geo-picker mobile-picker"> 
+                <div class="geo-current">
+                    <svg class="icon-pin" viewBox="0 0 24 24" width="18" height="18">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                    </svg>
+                    <span class="current-city">########</span> <svg class="icon-chevron" viewBox="0 0 24 24" width="14" height="14">
+                        <path d="M6 9l6 6 6-6" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <ul class="city-dropdown"> 
+                    <li data-city="Белыничи">Белыничи</li>
+                    <li data-city="Березино">Березино</li>
+                    <li data-city="Круглое">Круглое</li>
+                    <li data-city="Крупки">Крупки</li>
+                    <li data-city="Толочин">Толочин</li>
+                    <li data-city="Червень">Червень</li>
+                </ul>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#services">Услуги</a>
+            <a href="#catalog">Каталог</a>
+            <a href="#portfolio">Наши работы</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </aside>
+
+    <header class="main-header">
+        <div class="container">
+            
+            <div class="header-left">
+                <button class="burger-btn" id="openSidebar" aria-expanded="false" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="logo">
+                    <a href="/" class="logo-text">GBRS.BY</a>
+                </div>
+            </div>
+
+            <div class="header-center">
+                <div class="geo-picker" aria-expanded="false" tabindex="0">
+                    <div class="geo-current">
+                        <svg class="icon-pin" viewBox="0 0 24 24" width="18" height="18">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                        </svg>
+                        <span class="current-city">########</span>
+                        <svg class="icon-chevron" viewBox="0 0 24 24" width="14" height="14">
+                            <path d="M6 9l6 6 6-6" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    
+                    <ul class="city-dropdown"> 
+                        <li data-city="Белыничи">Белыничи</li>
+                        <li data-city="Березино">Березино</li>
+                        <li data-city="Круглое">Круглое</li>
+                        <li data-city="Крупки">Крупки</li>
+                        <li data-city="Толочин">Толочин</li>
+                        <li data-city="Червень">Червень</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="header-contacts">
+                    <div class="phone-item">
+                        <span class="operator">A1</span>
+                        <a href="tel:+375293573867" class="number">+375 (29) 357-38-67</a>
+                    </div>
+                    <div class="phone-divider"></div>
+                    <div class="phone-item">
+                        <span class="operator">МТС</span>
+                        <a href="tel:+375333127791" class="number">+375 (33) 312-77-91</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="main-content" id="mainContent">
+        
+        <section id="catalog" class="catalog-page ">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Каталог <span>памятников</span></h2>
+                    <div class="section-underline"></div>
+                </div>
+
+                <div class="catalog-page-filter">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="single">Одиночные</button>
+                    <button class="filter-btn" data-filter="double">Двойные</button>
+                    <button class="filter-btn" data-filter="exclusive">Эксклюзив</button>
+                    <button class="filter-btn" data-filter="cross">С крестом</button>
+                </div>
+
+                <div class="catalog-page-grid">
+
+                    <div class="product-card" data-category="single">
+                        <div class="product-badge">Популярное</div>
+                        <div class="product-image">
+                            <img src="./src/hero-image.png" alt="Памятник Модель 1">
+                            <div class="product-overlay">
+                                <button class="btn-more">Подробнее</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Модель 1</h3>
+                            <p class="product-desc">Одиночный</p>
+                            <div class="product-price">от XXX р</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="double">
+                        <div class="product-image">
+                            <img src="./src/hero-image.png" alt="Памятник Модель 2">
+                            <div class="product-overlay">
+                                <button class="btn-more">Подробнее</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Модель 2</h3>
+                            <p class="product-desc">Двойной</p>
+                            <div class="product-price">от XXX р</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="exclusive">
+                        <div class="product-image">
+                            <img src="./src/hero-image.png" alt="Памятник Модель 2">
+                            <div class="product-overlay">
+                                <button class="btn-more">Подробнее</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Модель 3</h3>
+                            <p class="product-desc">Эксклюзив</p>
+                            <div class="product-price">от XXX р</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="cross">
+                        <div class="product-image">
+                            <img src="./src/hero-image.png" alt="Памятник Модель 2">
+                            <div class="product-overlay">
+                                <button class="btn-more">Подробнее</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Модель 4</h3>
+                            <p class="product-desc">Крест</p>
+                            <div class="product-price">от XXX р</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-overlay"></div>
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <div class="lightbox-content">
+            <img src="" alt="Полное изображение" id="lightboxImage">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="logo-text">GBRS</a>
+                    <p class="footer-description">
+                        Профессиональная организация похорон и изготовление памятников. 
+                        Берем на себя все заботы в трудную минуту, гарантируя достойное прощание.
+                    </p>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#catalog">Каталог памятников</a></li>
+                        <li><a href="#portfolio">Наши работы</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contacts">
+                    <h4>Связаться с нами (<span id="footerCityName">XXX</span>)</h4>
+                    <a href="tel:+375291234567" class="footer-phone" id="branchPhone1">+375 (XX) XXX-XX-XX</a>
+                    <a href="tel:+375339876543" class="footer-phone" id="branchPhone2">+375 (XX) XXX-XX-XX</a>
+                    <p id="branchAddress">г. XXX, ул. XXX, д. XX</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2026 GBRS — Ритуальные услуги. Все права защищены.
+                </div>
+                <div class="developer">
+                    Разработка сайта: <a href="#">NS</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

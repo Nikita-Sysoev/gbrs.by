@@ -102,42 +102,72 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- ЛОГИКА GEOPICKER ---
-    const closeGeoList = () => {
-        if (cityList) cityList.style.display = 'none';
-        if (geoPicker) geoPicker.classList.remove('open');
+    const pickers = document.querySelectorAll('.geo-picker');
+    const cityLabels = document.querySelectorAll('.current-city');
+
+    // Функция обновления текста во всех пикерах сразу
+    const updateAllLabels = (cityName) => {
+        cityLabels.forEach(label => {
+            label.textContent = cityName;
+        });
     };
 
-    if (geoPicker && cityList) {
-        geoPicker.addEventListener('click', (e) => {
+    pickers.forEach(picker => {
+        const current = picker.querySelector('.geo-current');
+        const dropdown = picker.querySelector('.city-dropdown');
+
+        // Открытие/Закрытие
+        current.addEventListener('click', (e) => {
             e.stopPropagation();
-            const isOpen = geoPicker.classList.toggle('open');
-            cityList.style.display = isOpen ? 'block' : 'none';
+            
+            // Закрываем другие пикеры перед открытием этого
+            pickers.forEach(p => {
+                if (p !== picker) {
+                    p.classList.remove('open');
+                    p.querySelector('.city-dropdown').style.display = 'none';
+                }
+            });
+
+            const isOpen = picker.classList.toggle('open');
+            dropdown.style.display = isOpen ? 'block' : 'none';
         });
 
-        cityList.addEventListener('click', (e) => {
+        // Выбор города
+        dropdown.addEventListener('click', (e) => {
             const li = e.target.closest('li');
             if (li) {
                 const selectedCity = li.getAttribute('data-city');
-                activeCity.textContent = selectedCity;
+                
+                // 1. Сохраняем
                 localStorage.setItem('selectedBranch', selectedCity);
-                updateBranchUI(selectedCity);
-                closeGeoList();
+                
+                // 2. Обновляем текст ВЕЗДЕ
+                updateAllLabels(selectedCity);
+                
+                // 3. Вызываем вашу функцию UI (карты, телефоны)
+                if (typeof updateBranchUI === "function") updateBranchUI(selectedCity);
+                
+                // 4. Закрываем
+                picker.classList.remove('open');
+                dropdown.style.display = 'none';
             }
         });
-    }
-
-    // Закрытие при клике вне элементов
-    document.addEventListener('click', (e) => {
-        if (geoPicker && !geoPicker.contains(e.target)) closeGeoList();
-        if (sidebar && sidebar.classList.contains('active') && !sidebar.contains(e.target) && !openBtn.contains(e.target)) {
-            toggleMenu();
-        }
     });
 
-    // --- ИНИЦИАЛИЗАЦИЯ ГОРОДА ПРИ ЗАГРУЗКЕ ---
-    const savedBranch = localStorage.getItem('selectedBranch') || "Белыничи"; 
-    if (activeCity) activeCity.textContent = savedBranch;
-    updateBranchUI(savedBranch);
+    // Клик мимо — закрыть всё
+    document.addEventListener('click', () => {
+        pickers.forEach(p => {
+            p.classList.remove('open');
+            p.querySelector('.city-dropdown').style.display = 'none';
+        });
+    });
+
+    // Инициализация при загрузке
+    const savedCity = localStorage.getItem('selectedBranch') || "Белыничи";
+    updateAllLabels(savedCity);
+    if (typeof updateBranchUI === "function") updateBranchUI(savedCity);
+
+
 
     // --- LIGHTBOX ---
     const lightbox = document.getElementById('lightbox');
@@ -169,4 +199,35 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+
+
+
+
+
+
+
+    // --- ЛОГИКА ФИЛЬТРАЦИИ КАТАЛОГА ---
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Меняем активную кнопку
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            productCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.style.display = 'block';
+                    // Можно добавить анимацию появления
+                    card.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
 });
