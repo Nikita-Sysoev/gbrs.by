@@ -932,6 +932,10 @@ main section .section-underline {
 
 
 /* 13. CONTACTS SECTION */
+.contacts {
+    background-color: var(--color-black-light); /* Темнее, чем портфолио */
+}
+
 .section-contacts {
     background-color: var(--color-black); /* Темнее, чем портфолио */
 }
