@@ -270,3 +270,24 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. Проверяем, есть ли в адресе параметр filter
+    const urlParams = new URLSearchParams(window.location.search);
+    const filterValue = urlParams.get('filter');
+
+    if (filterValue) {
+        // 2. Ищем кнопку фильтра, у которой data-filter совпадает с тем, что в URL
+        const targetButton = document.querySelector(`.filter-btn[data-filter="${filterValue}"]`);
+        
+        if (targetButton) {
+            // 3. Если кнопка найдена, имитируем клик по ней
+            // Твой существующий скрипт фильтрации подхватит этот клик и всё покажет
+            targetButton.click();
+            
+            // 4. Опционально: скроллим к сетке товаров, чтобы пользователь сразу их увидел
+            targetButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+});
