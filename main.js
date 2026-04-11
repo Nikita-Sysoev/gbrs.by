@@ -411,6 +411,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeLightbox = () => {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
+            
+            const lightboxImg = document.querySelector('.lightbox-image');
+            lightboxImg.src = '';
         };
 
         lightbox.addEventListener('click', (e) => {
