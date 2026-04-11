@@ -276,12 +276,12 @@ function renderPortfolioGrid(limit) {
     images.forEach((name, index) => {
         const title = `Памятник ${index + 1}`;
         const link = document.createElement('a');
-        link.href = `./src/images/portfolio/${name}.webp`;
+        link.href = `./src/images/portfolio/thumb/${name}.webp`;
         link.className = 'portfolio-item';
         link.title = title;
 
         const image = document.createElement('img');
-        image.src = `./src/images/portfolio/thumb/${name}.webp`;
+        image.src = `./src/images/portfolio/${name}.webp`;
         image.loading = 'lazy';
         image.alt = title;
 
