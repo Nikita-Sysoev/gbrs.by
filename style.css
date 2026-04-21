@@ -1319,6 +1319,7 @@ main section .section-underline {
     transform: scale(1.1);
 }
 
+/*
 .catalog-page .product-overlay {
     position: absolute;
     top: 0;
@@ -1336,6 +1337,7 @@ main section .section-underline {
 .catalog-page .product-card:hover .product-overlay {
     opacity: 1;
 }
+*/
 
 .catalog-page .product-info {
     padding: 20px;
