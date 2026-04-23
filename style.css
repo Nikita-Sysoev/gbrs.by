@@ -159,12 +159,23 @@ body {
     display: none;
 }
 
+.contacts-location{
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .sidebar-location{
         display: block;
+        width: 160px;
+    }
+
+    .contacts-location{
+        display: flex;
+        justify-content: center;
     }
     
     .mobile-picker{
+        width: 100%;
         margin-bottom: 25px;
     }
     
@@ -179,7 +190,7 @@ body {
     
     .mobile-picker .geo-current{
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         background: rgba(212, 175, 55, 0.1);
         padding: 10px;
     }
@@ -363,6 +374,7 @@ body {
     }
     .hero-subtitle {
         font-size: 16px;
+        margin-bottom: 20px;
     }
 }
 
