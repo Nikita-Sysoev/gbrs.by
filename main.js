@@ -264,9 +264,12 @@ function renderPortfolioGrid(limit) {
     const portfolioGrid = document.getElementById('portfolioGrid');
     if (!portfolioGrid) return;
 
+    // Оставляем вашу иконку, она отлично вписывается в оверлей
     const iconSvg = `
         <div class="portfolio-zoom-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
         </div>
     `;
 
@@ -275,21 +278,35 @@ function renderPortfolioGrid(limit) {
 
     images.forEach((name, index) => {
         const title = `Памятник ${index + 1}`;
+        const thumbPath = `./src/images/portfolio/thumb/${name}.webp`;
+        const fullPath = `./src/images/portfolio/${name}.webp`;
+
         const link = document.createElement('a');
-        link.href = `./src/images/portfolio/${name}.webp`;
+        link.href = fullPath;
         link.className = 'portfolio-item';
         link.title = title;
 
-        const image = document.createElement('img');
-        image.src = `./src/images/portfolio/thumb/${name}.webp`;
-        image.loading = 'lazy';
-        image.alt = title;
+        // Создаем новую структуру внутренней части карточки
+        link.innerHTML = `
+            <div class="portfolio-image-container">
+                <img src="${thumbPath}" class="portfolio-img-blur" aria-hidden="true">
+                
+                <img src="${thumbPath}" 
+                     class="portfolio-img-main" 
+                     loading="lazy" 
+                     alt="${title}">
+                
+                <div class="portfolio-overlay">
+                    ${iconSvg}
+                </div>
+            </div>
+        `;
 
-        link.appendChild(image);
-        link.insertAdjacentHTML('beforeend', iconSvg);
         fragment.appendChild(link);
     });
 
+    // Очищаем грид перед добавлением (на случай повторного вызова)
+    portfolioGrid.innerHTML = ''; 
     portfolioGrid.appendChild(fragment);
 }
 

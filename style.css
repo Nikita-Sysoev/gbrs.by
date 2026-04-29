@@ -757,7 +757,7 @@ main section .section-underline {
 /* Сетка */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr); 
     gap: 15px;
     padding-top: 5px;
 }
@@ -773,26 +773,17 @@ main section .section-underline {
     z-index: 1; /* Базовый слой */
 }
 
-.portfolio-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
 .portfolio-zoom-icon {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 10, 10, 0.7);
+    inset: 0; 
+    background: rgba(10, 10, 10, 0.6); 
     color: var(--color-gold);
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
     transition: var(--transition);
+    z-index: 4; /* Поверх фото, но под градиентом если нужно */
 }
 
 /* Hover эффекты */
@@ -803,7 +794,66 @@ main section .section-underline {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-.portfolio-item:hover img {
+/* Контейнер внутри ссылки */
+.portfolio-image-container {
+    position: relative;
+    height: 100%; 
+    width: 100%;
+    background: #000;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Слой размытия */
+.portfolio-img-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(15px) brightness(0.4);
+    transform: scale(1.1); /* Убираем белые края от блюра */
+    z-index: 1;
+}
+
+/* Основное фото */
+.portfolio-img-main {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Картинка видна целиком */
+    transition: transform 0.4s ease;
+}
+
+/* Оверлей */
+.portfolio-overlay {
+    position: absolute;
+    inset: 0; /* Растягиваем на всю карточку */
+    background: rgba(10, 10, 10, 0); /* Затемнение */
+    color: var(--color-gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Скрыт по умолчанию */
+    transition: var(--transition);
+    z-index: 5; /* Выше всех картинок */
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+/* Если внутри есть иконка, можно добавить ей анимацию */
+.portfolio-zoom-icon svg {
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-img-main {
     transform: scale(1.1);
 }
 
@@ -1318,17 +1368,41 @@ main section .section-underline {
     height: 320px;
     background: #1a1a1a;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.catalog-page .product-image img {
+.img-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: blur(15px) brightness(0.4);
+    transform: scale(1.1); 
+    z-index: 1;
+}
+
+.img-main {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     transition: transform 0.5s ease;
 }
 
-.catalog-page .product-card:hover .product-image img {
-    transform: scale(1.1);
+/* Эффект при наведении */
+.product-card:hover .img-main {
+    transform: scale(1.05);
+}
+
+.product-card:hover .img-blur {
+    filter: blur(10px) brightness(0.5);
 }
 
 /*
